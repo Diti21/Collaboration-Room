@@ -1,0 +1,32 @@
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model message{
+  id  Int  @id @default(autoincrement())
+  content String
+  sender String
+  channel String
+  createdAt DateTime @default(now())
+
+}
+model YouMessage {
+  id        Int      @id @default(autoincrement())
+  content   String
+  channel String
+  createdAt DateTime @default(now())
+}
+
+model AnonymousMessage {
+  id        Int      @id @default(autoincrement())
+  content   String
+  channel String
+  createdAt DateTime @default(now())
+}
